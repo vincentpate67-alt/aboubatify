@@ -1,0 +1,245 @@
+[
+  {
+    "id": "song-1",
+    "title": "Blue Yéti",
+    "description": "Antoine il a les salubo.",
+    "file": "music/aboubakar/Blueyeti.mp3",
+    "cover": "covers/aboubakar.jpg",
+    "playlist": [1, 4],
+    "theme": ["#F20C0C"]
+  },
+    {
+    "id": "song-2",
+    "title": "Shush",
+    "description": "Ferme ta bouche césar.",
+    "file": "music/aboubakar/Shush.mp3",
+    "cover": "covers/aboubakar.jpg",
+    "playlist": [1, 4],
+    "theme": ["#F2590C"]
+  },
+    {
+    "id": "song-3",
+    "title": "Clochette",
+    "description": "Est-ce que c'est bon pour vous?",
+    "file": "music/aboubakar/Clochette.mp3",
+    "cover": "covers/aboubakar.jpg",
+    "playlist": [1, 4],
+    "theme": ["#F2F20C"]
+  },
+    {
+    "id": "song-4",
+    "title": "Aboubakar burger",
+    "description": "C'est césaaaaar.",
+    "file": "music/aboubakar/Aboubakar burger.mp3",
+    "cover": "covers/aboubakar.jpg",
+    "playlist": [1, 4],
+    "theme": ["#1FF20C"]
+  },
+    {
+    "id": "song-5",
+    "title": "Rompich",
+    "description": "Mamadou et aboubakar, ils font caca.",
+    "file": "music/aboubakar/Rompich.mp3",
+    "cover": "covers/aboubakar.jpg",
+    "playlist": [1, 4],
+    "theme": ["#0CF2C8"]
+  },
+    {
+    "id": "song-6",
+    "title": "Alaide",
+    "description": "Quand je dis coubeh tu dis ampagnan.",
+    "file": "music/aboubakar/Alaide.mp3",
+    "cover": "covers/aboubakar.jpg",
+    "playlist": [1, 4],
+    "theme": ["#0CA2F2"]
+  },
+    {
+    "id": "song-7",
+    "title": "Antoine",
+    "description": "Salut moi c'est Antoine.",
+    "file": "music/aboubakar/Antoine.mp3",
+    "cover": "covers/aboubakar.jpg",
+    "playlist": [1, 4],
+    "theme": ["#600CF2"]
+  },
+    {
+    "id": "song-8",
+    "title": "Aboubakar le noir",
+    "description": "Quand j'pètes ça fait quoicoubeh.",
+    "file": "music/aboubakar/aboubakar le noir.mp3",
+    "cover": "covers/aboubakar.jpg",
+    "playlist": [1, 4],
+    "theme": ["#DF0CF2"]
+  },
+    {
+    "id": "song-9",
+    "title": "N-Word",
+    "description": "JE VAIS DIRE LE N-WORD, WOW.",
+    "file": "music/aboubakar/N-Word.mp3",
+    "cover": "covers/aboubakar.jpg",
+    "playlist": [1, 4],
+    "theme": ["#494949"]
+  },
+    {
+    "id": "song-10",
+    "title": "Skibidi boubacar",
+    "description": "C'est trop un cacaaaaa",
+    "file": "music/oukoubouba/Skibidi boubacar.mp3",
+    "cover": "covers/oukoubouba.jpg",
+    "playlist": [2, 4],
+    "theme": ["#F20C0C"]
+  },
+    {
+    "id": "song-11",
+    "title": "Naze-y",
+    "description": "NEIN NEIN NEIN NEIN NEEEEIN.",
+    "file": "music/oukoubouba/Naze-y.mp3",
+    "cover": "covers/oukoubouba.jpg",
+    "playlist": [2, 4],
+    "theme": ["#F2590C"]
+  },
+    {
+    "id": "song-12",
+    "title": "Noel",
+    "description": "Joyeux noel à la famille Poure",
+    "file": "music/oukoubouba/Noel.mp3",
+    "cover": "covers/oukoubouba.jpg",
+    "playlist": [2, 4],
+    "theme": ["#12134D"]
+  },
+    {
+    "id": "song-13",
+    "title": "Skibidi bap bap",
+    "description": "Le sud c'est trop bien.",
+    "file": "music/oukoubouba/Skibidi bap bap.mp3",
+    "cover": "covers/oukoubouba.jpg",
+    "playlist": [2, 4],
+    "theme": ["#4A36E3"]
+  },
+    {
+    "id": "song-14",
+    "title": "Guez",
+    "description": "Aboubakar, il est trop insecure.",
+    "file": "music/oukoubouba/Guez.mp3",
+    "cover": "covers/oukoubouba.jpg",
+    "playlist": [2, 4],
+    "theme": ["#E5EB21"]
+  },
+    {
+    "id": "song-15",
+    "title": "Ouais c'est l'été",
+    "description": "Trop stylé, ouais c'est l'été",
+    "file": "music/oukoubouba/Ouais c'est l'été.mp3",
+    "cover": "covers/oukoubouba.jpg",
+    "playlist": [2, 4],
+    "theme": ["#ED91DB"]
+  },
+    {
+    "id": "song-16",
+    "title": "Alexandre",
+    "description": "Je déteste les petit-chinois.",
+    "file": "music/oukoubouba/Alexandre.mp3",
+    "cover": "covers/oukoubouba.jpg",
+    "playlist": [2, 4],
+    "theme": ["#44E625"]
+  },
+    {
+    "id": "song-17",
+    "title": "Agougougaga",
+    "description": "Au bac de francais j'vais dire agougougaga.",
+    "file": "music/oukoubouba/Gougougaga.mp3",
+    "cover": "covers/oukoubouba.jpg",
+    "playlist": [2, 4],
+    "theme": ["#19C5E3"]
+  },
+    {
+    "id": "song-18",
+    "title": "Smooth operator",
+    "description": "Bienvenue au macdonald's du couvent des jacobins.",
+    "file": "music/oukoubouba/Smooth operator.mp3",
+    "cover": "covers/oukoubouba.jpg",
+    "playlist": [2, 4],
+    "theme": ["#3755ED"]
+  },
+    {
+    "id": "song-19",
+    "title": "Abouba-team",
+    "description": "Hamta, je lui lance une leure",
+    "file": "music/oukoubouba/Abouba-team.mp3",
+    "cover": "covers/oukoubouba.jpg",
+    "playlist": [2, 4],
+    "theme": ["#8919D4"]
+  },
+    {
+    "id": "song-20",
+    "title": "T ou N",
+    "description": "Une lettre de diff c'est pas la même.",
+    "file": "music/boubaguez/T ou N.mp3",
+    "cover": "covers/boubaguez.jpg",
+    "playlist": [3, 4],
+    "theme": ["#F20C0C"]
+  },
+    {
+    "id": "song-21",
+    "title": "Plaît-il?",
+    "description": "César ptet il sait pas parler",
+    "file": "music/boubaguez/Plaît-il.mp3",
+    "cover": "covers/boubaguez.jpg",
+    "playlist": [3, 4],
+    "theme": ["#F2590C"]
+  },
+    {
+    "id": "song-22",
+    "title": "Wallah",
+    "description": "Wallah y'a césar.",
+    "file": "music/boubaguez/Wallah.mp3",
+    "cover": "covers/boubaguez.jpg",
+    "playlist": [3, 4],
+    "theme": ["#F2F20C"]
+  },
+    {
+    "id": "song-23",
+    "title": "U Moyen",
+    "description": "Emile zola? Ou plutôt Débile ébola.",
+    "file": "music/boubaguez/U-MOYEN.mp3",
+    "cover": "covers/boubaguez.jpg",
+    "playlist": [3, 4],
+    "theme": ["#1FF20C"]
+  },
+    {
+    "id": "song-24",
+    "title": "MOG",
+    "description": "J'vous MOG tous.",
+    "file": "music/boubaguez/MOG.mp3",
+    "cover": "covers/boubaguez.jpg",
+    "playlist": [3, 4],
+    "theme": ["#0CF2C8"]
+  },
+    {
+    "id": "song-25",
+    "title": "Yuki",
+    "description": "Mbappé kiki, miam le pipi",
+    "file": "music/boubaguez/Yuki.mp3",
+    "cover": "covers/boubaguez.jpg",
+    "playlist": [3, 4],
+    "theme": ["#0CA2F2"]
+  },
+    {
+    "id": "song-26",
+    "title": "Gros nez",
+    "description": "NINI NIGGZ",
+    "file": "music/boubaguez/Gros nez.mp3",
+    "cover": "covers/boubaguez.jpg",
+    "playlist": [3, 4],
+    "theme": ["#3755ED"]
+  },
+    {
+    "id": "song-27",
+    "title": "Dragibus",
+    "description": "Dra dra dragibus...",
+    "file": "music/boubaguez/Dragibus.mp3",
+    "cover": "covers/boubaguez.jpg",
+    "playlist": [3, 4],
+    "theme": ["#600CF2"]
+  }
+]

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aboubatify</title>
+    <meta name="description" content="Lecteur de playlists local immersif" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar glass-panel">
+        <div class="brand-wrap">
+          <div class="brand-mark">A</div>
+          <div>
+            <p class="eyebrow">Les Aboubalbums complets</p>
+            <h1>Aboubatify</h1>
+          </div>
+        </div>
+
+        <nav class="playlist-nav" id="playlistNav" aria-label="Sélection des playlists"></nav>
+
+        <div class="topbar-actions">
+          <button class="icon-button" id="toggleTheme" aria-label="Basculer le thème">
+            <span class="theme-icon">☼</span>
+          </button>
+        </div>
+      </header>
+
+      <main class="main-layout">
+        <section class="now-playing panel glass-panel">
+          <div class="cover-stage">
+            <div class="cover-wrapper">
+              <img id="currentCover" alt="Pochette actuelle" />
+            </div>
+          </div>
+
+          <div class="meta-block">
+            <div class="meta-topline">
+              <span id="currentPlaylistLabel" class="playlist-badge">Playlist</span>
+              <button id="toggleShuffle" class="mini-toggle" aria-pressed="false">
+                <span class="toggle-label">Shuffle</span>
+                <span class="toggle-indicator"></span>
+              </button>
+            </div>
+
+            <h2 id="currentTitle">Sélectionnez une musique</h2>
+            <p id="currentDescription" class="description">Aucune piste sélectionnée.</p>
+
+            <div class="timeline-wrap">
+              <div class="timeline" id="progressBar" role="slider" aria-label="Progression de la lecture" tabindex="0">
+                <div class="timeline-progress" id="progressFill"></div>
+                <div class="timeline-thumb" id="progressThumb"></div>
+              </div>
+              <div class="time-row">
+                <span id="currentTime">0:00</span>
+                <span id="totalTime">0:00</span>
+              </div>
+            </div>
+
+            <div class="controls-row">
+              <button class="control-button" id="prevTrack" aria-label="Précédent">⏮</button>
+              <button class="control-button primary" id="playPause" aria-label="Lecture / Pause">▶</button>
+              <button class="control-button" id="nextTrack" aria-label="Suivant">⏭</button>
+            </div>
+
+            <div class="extra-controls">
+              <div class="control-group">
+                <label for="volumeControl">Volume</label>
+                <input id="volumeControl" type="range" min="0" max="1" step="0.01" value="0.75" />
+              </div>
+              <div class="control-group range-group">
+                <label for="speedControl">Vitesse</label>
+                <input id="speedControl" type="range" min="0.1" max="2" step="0.1" value="1" />
+                <span id="speedValue">1.0x</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <aside class="library panel glass-panel">
+          <div class="library-header">
+            <div>
+              <p class="eyebrow">Bibliothèque</p>
+              <h3 id="libraryTitle">ABOUBAKAR</h3>
+            </div>
+          </div>
+
+          <div class="song-list" id="songList"></div>
+        </aside>
+      </main>
+    </div>
+
+    <audio id="audioPlayer" preload="metadata"></audio>
+
+    <script src="config.js"></script>
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
