@@ -37,9 +37,9 @@
   },
     {
     "id": "song-5",
-    "title": "rompich",
+    "title": "Rompich",
     "description": "Mamadou et aboubakar, ils font caca.",
-    "file": "music/aboubakar/Rompich.mp3",
+    "file": "music/aboubakar/rompich.mp3",
     "cover": "covers/aboubakar.jpg",
     "playlist": [1, 4],
     "theme": ["#0CF2C8"]
