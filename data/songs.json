@@ -241,5 +241,14 @@
     "cover": "covers/boubaguez.jpg",
     "playlist": [3, 4],
     "theme": ["#600CF2"]
+  },
+    {
+    "id": "song-28",
+    "title": "Terminale",
+    "description": "Masha Masha bangz",
+    "file": "music/boubaguez/Bangz.mp3",
+    "cover": "covers/boubaguez.jpg",
+    "playlist": [3, 4],
+    "theme": ["#F20CE7"]
   }
 ]
