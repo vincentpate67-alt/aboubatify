@@ -1,5 +1,24 @@
 export const STEPS = [0.1, 0.2, 0.5, 1, 2, 3, 5, 10];
 const COLORS = ['#ff163d', '#ff4141', '#ff7039', '#ffa631', '#dfca30', '#a4dc3b', '#60e465', '#26e99a'];
+const HISTORY_KEY = 'aboubatify-blindtest-history-v1';
+
+export function chooseBlindtestSong(songs, history, previousId, random = Math.random) {
+  const lastId = previousId || history.recent?.[0];
+  const candidates = songs.length > 1 ? songs.filter(item => item.id !== lastId) : songs;
+  if (!candidates.length) return null;
+  const weights = candidates.map(item => {
+    const count = history.counts?.[item.id];
+    const seen = Number.isSafeInteger(count) && count > 0 ? count : 0;
+    const recentPenalty = history.recent?.includes(item.id) ? 0.2 : 1;
+    return recentPenalty / (1 + seen) ** 2;
+  });
+  let draw = random() * weights.reduce((sum, weight) => sum + weight, 0);
+  for (let i = 0; i < candidates.length; i++) {
+    draw -= weights[i];
+    if (draw < 0) return candidates[i];
+  }
+  return candidates.at(-1);
+}
 
 // Give the very short excerpts enough room to remain legible on phones.
 export function timelinePosition(seconds) {
@@ -121,6 +140,16 @@ export function createBlindtest({ getSongs, getVolume, getCatalog = getSongs }) 
     active.scrollIntoView?.({ block: 'nearest' });
   });
   let context, source, buffer, song, offset = 0, step = 0, request = 0;
+  let history = { counts: Object.create(null), recent: [] }, roundRecorded = false;
+  try {
+    const saved = JSON.parse(window.localStorage.getItem(HISTORY_KEY));
+    if (saved && typeof saved.counts === 'object' && saved.counts !== null) {
+      for (const [id, count] of Object.entries(saved.counts)) {
+        if (Number.isSafeInteger(count) && count >= 0) history.counts[id] = count;
+      }
+      history.recent = Array.isArray(saved.recent) ? saved.recent.filter(id => typeof id === 'string').slice(0, 4) : [];
+    }
+  } catch { /* Keep an in-memory history when browser storage is unavailable. */ }
   let visible = false, busy = false, solved = false, heard = false, points = 0, wins = 0;
   let controller, activeGain, frame = 0, playbackRequest = 0, confettiTimer;
   const transitions = new WeakMap();
@@ -259,6 +288,13 @@ export function createBlindtest({ getSongs, getVolume, getCatalog = getSongs }) 
       // The audio clock cuts the sample precisely, even for the 100 ms step.
       if (full) source.start(0, offset);
       else source.start(0, offset, length);
+      // Only count a round once it actually plays, never on replay or failed loading.
+      if (!roundRecorded) {
+        roundRecorded = true;
+        history.counts[song.id] = (history.counts[song.id] || 0) + 1;
+        history.recent = [song.id, ...history.recent.filter(id => id !== song.id)].slice(0, 4);
+        try { window.localStorage.setItem(HISTORY_KEY, JSON.stringify(history)); } catch {}
+      }
       frame = requestAnimationFrame(tick);
       heard = true;
       render();
@@ -272,6 +308,7 @@ export function createBlindtest({ getSongs, getVolume, getCatalog = getSongs }) 
     controller?.abort();
     const token = ++request;
     const previousId = song?.id;
+    roundRecorded = false;
     buffer = null;
     solved = false;
     heard = false;
@@ -285,14 +322,13 @@ export function createBlindtest({ getSongs, getVolume, getCatalog = getSongs }) 
     $('#btSubmit').disabled = true;
     closeSuggestions();
     show($('#btReveal'), false);
-    let candidates = getSongs();
-    if (candidates.length > 1) candidates = candidates.filter(item => item.id !== previousId);
-    if (!candidates.length) {
+    const selected = chooseBlindtestSong(getSongs(), history, previousId);
+    if (!selected) {
       status.textContent = 'Active au moins une musique dans la bibliothèque pour jouer.';
       render();
       return;
     }
-    song = candidates[Math.floor(Math.random() * candidates.length)];
+    song = selected;
     busy = true;
     render();
     status.textContent = 'Préparation du morceau mystère…';
