@@ -117,6 +117,11 @@ export function createBlindtest({ getSongs, getVolume, getCatalog = getSongs }) 
   answer.addEventListener('focus', () => { if (answer.value) updateSuggestions(); });
   answer.addEventListener('blur', closeSuggestions);
   answer.addEventListener('keydown', event => {
+    if (event.key === 'Tab' && !event.shiftKey && !suggestions.hidden && matches.length) {
+      event.preventDefault();
+      chooseTitle(matches[0]);
+      return;
+    }
     if (event.key === 'Escape') { closeSuggestions(); return; }
     if (event.key === 'Enter' && !suggestions.hidden && selectedMatch >= 0) {
       event.preventDefault();
