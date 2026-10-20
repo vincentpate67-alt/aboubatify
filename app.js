@@ -1,4 +1,4 @@
-import { createBlindtest } from './blindtest.js';
+import { createBlindtest } from './blindtest.js?v=2';
 
 const config = window.PLAYER_CONFIG;
 
@@ -334,6 +334,7 @@ async function loadSongs() {
 
 const blindtest = createBlindtest({
   getSongs: () => state.allSongs.filter(song => song.enabled && song.file),
+  getCatalog: () => state.allSongs,
   getVolume: () => Number(volumeControl.value)
 });
 
