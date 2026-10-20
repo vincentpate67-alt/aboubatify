@@ -1,3 +1,5 @@
+import { createBlindtest } from './blindtest.js';
+
 const config = window.PLAYER_CONFIG;
 
 const audio = document.getElementById('audioPlayer');
@@ -330,12 +332,18 @@ async function loadSongs() {
   }
 }
 
+const blindtest = createBlindtest({
+  getSongs: () => state.allSongs.filter(song => song.enabled && song.file),
+  getVolume: () => Number(volumeControl.value)
+});
+
 function getPlaylistEntries() {
   return [
     { id: 'playlist-1', name: 'ABOUBAKAR' },
     { id: 'playlist-2', name: 'OUKOUBOUBA' },
     { id: 'playlist-3', name: 'BOUBAGUEZ' },
-    { id: 'all', name: 'ALL STAR' }
+    { id: 'all', name: 'ALL STAR' },
+    { id: 'blindtest', name: 'BLINDTEST' }
   ];
 }
 
@@ -365,6 +373,17 @@ function getCurrentPlaylistSongs() {
 
 function setPlaylist(playlistId) {
   state.currentPlaylistId = playlistId;
+  const isBlindtest = playlistId === 'blindtest';
+  document.querySelector('.main-layout').hidden = isBlindtest;
+  blindtest.setVisible(isBlindtest);
+  if (isBlindtest) {
+    state.mediaRequestId += 1;
+    audio.pause();
+    state.isPlaying = false;
+    updatePlayButton();
+    renderPlaylists();
+    return;
+  }
   const currentSongs = getCurrentPlaylistSongs();
   state.songs = currentSongs;
   renderPlaylists();
