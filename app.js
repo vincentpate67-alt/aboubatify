@@ -1,4 +1,4 @@
-import { createBlindtest } from './blindtest.js?v=3';
+import { createBlindtest } from './blindtest.js?v=4';
 
 const config = window.PLAYER_CONFIG;
 

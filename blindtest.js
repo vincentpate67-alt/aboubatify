@@ -20,13 +20,8 @@ export function chooseBlindtestSong(songs, history, previousId, random = Math.ra
   return candidates.at(-1);
 }
 
-// Give the very short excerpts enough room to remain legible on phones.
 export function timelinePosition(seconds) {
-  const times = [0, ...STEPS];
-  for (let i = 1; i < times.length; i++) {
-    if (seconds <= times[i]) return Math.max(0, (i - 1 + (seconds - times[i - 1]) / (times[i] - times[i - 1])) / 8 * 100);
-  }
-  return 100;
+  return Math.min(100, Math.max(0, seconds / 10 * 100));
 }
 
 export function normalizeAnswer(value) {
@@ -159,7 +154,8 @@ export function createBlindtest({ getSongs, getVolume, getCatalog = getSongs }) 
   $('.bt-markers').replaceChildren(...STEPS.map((seconds, index) => {
     const mark = document.createElement('span');
     mark.className = 'bt-marker';
-    mark.style.left = `${(index + 1) / 8 * 100}%`;
+    mark.style.left = `${timelinePosition(seconds)}%`;
+    mark.style.setProperty('--label-row', index < 3 ? index : 0);
     mark.style.setProperty('--mark-color', COLORS[index]);
     mark.textContent = `${String(seconds).replace('.', ',')}`;
     return mark;
