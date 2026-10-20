@@ -94,6 +94,9 @@ body.light-theme {
 #btReveal h3 { font-size: 26px; margin: 16px 0 8px; }
 #btReveal p { color: var(--muted); }
 #btNext { margin-top: 28px; }
+.bt-volume { display: flex; align-items: center; justify-content: center; gap: 12px; margin: 22px auto 0; max-width: 330px; font-size: 12px; color: var(--muted); }
+.bt-volume input { min-width: 0; width: 100%; accent-color: var(--accent); cursor: pointer; }
+.bt-volume output { min-width: 42px; text-align: right; font-variant-numeric: tabular-nums; }
 @media (max-width: 480px) {
   .bt-actions { flex-direction: column; }
   .bt-top { flex-wrap: wrap; justify-content: center; }

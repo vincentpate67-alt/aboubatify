@@ -50,6 +50,7 @@ export function createBlindtest({ getSongs, getVolume, getCatalog = getSongs }) 
       <button class="bt-primary" id="btListen" type="button">Commencer</button>
       <button id="btSkip" type="button" hidden>Je sais pas →</button>
     </div>
+    <div class="bt-volume"><label for="btVolume">Volume</label><input id="btVolume" type="range" min="0" max="1" step="0.01" /><output id="btVolumeValue" for="btVolume"></output></div>
     <form id="btForm" hidden autocomplete="off">
       <label for="btAnswer">Quel est le titre ?</label>
       <div class="bt-answer-row"><input id="btAnswer" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="btSuggestions" placeholder="Écris le titre…" maxlength="200" required /><button id="btSubmit" type="submit" disabled>Valider</button></div>
@@ -152,6 +153,27 @@ export function createBlindtest({ getSongs, getVolume, getCatalog = getSongs }) 
   } catch { /* Keep an in-memory history when browser storage is unavailable. */ }
   let visible = false, busy = false, solved = false, heard = false, points = 0, wins = 0;
   let controller, activeGain, frame = 0, playbackRequest = 0, confettiTimer;
+  let volume = getVolume();
+  try {
+    const saved = window.localStorage.getItem('aboubatify-blindtest-volume');
+    if (saved !== null && Number.isFinite(Number(saved))) volume = Math.min(1, Math.max(0, Number(saved)));
+  } catch {}
+  const volumeSlider = $('#btVolume');
+  volumeSlider.value = String(volume);
+  function updateVolume() {
+    $('#btVolumeValue').textContent = `${Math.round(volume * 100)} %`;
+    volumeSlider.setAttribute('aria-valuetext', `${Math.round(volume * 100)} pour cent`);
+    if (activeGain && context) {
+      activeGain.gain.cancelScheduledValues(context.currentTime);
+      activeGain.gain.setTargetAtTime(volume, context.currentTime, .015);
+    }
+  }
+  volumeSlider.addEventListener('input', () => {
+    volume = Number(volumeSlider.value);
+    updateVolume();
+    try { window.localStorage.setItem('aboubatify-blindtest-volume', String(volume)); } catch {}
+  });
+  updateVolume();
   const transitions = new WeakMap();
   const reducedMotion = () => window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
   const durationLabel = () => `${String(STEPS[step]).replace('.', ',')} s`;
@@ -263,7 +285,7 @@ export function createBlindtest({ getSongs, getVolume, getCatalog = getSongs }) 
       source.buffer = buffer;
       const gain = context.createGain();
       activeGain = gain;
-      gain.gain.value = getVolume();
+      gain.gain.value = volume;
       source.connect(gain);
       gain.connect(context.destination);
       const playing = source;
