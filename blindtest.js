@@ -36,7 +36,7 @@ export function createBlindtest({ getSongs, getVolume, getCatalog = getSongs }) 
   panel.hidden = true;
   panel.setAttribute('aria-label', 'Blindtest musical');
   panel.innerHTML = `
-    <div class="bt-top"><span class="playlist-badge">LE BLINDTEST</span><span id="btScore">0 point · 0 trouvé</span></div>
+    <div class="bt-top"><span class="playlist-badge">LE BLINDTEST</span><span id="btScore" aria-live="polite">Connaissance · — /20</span></div>
     <div class="bt-mystery" aria-hidden="true">♪ ?</div>
     <p class="eyebrow">Tu connais vraiment les classiques ?</p>
     <h2>Une fraction de seconde. Un titre.</h2>
@@ -56,7 +56,7 @@ export function createBlindtest({ getSongs, getVolume, getCatalog = getSongs }) 
       <div class="bt-answer-row"><input id="btAnswer" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="btSuggestions" placeholder="Écris le titre…" maxlength="200" required /><button id="btSubmit" type="submit" disabled>Valider</button></div>
       <ul id="btSuggestions" role="listbox" aria-label="Titres proposés" hidden></ul>
     </form>
-    <p id="btStatus" role="status" aria-live="polite">Trouve le titre dès 0,1 s pour gagner 8 points.</p>
+    <p id="btStatus" role="status" aria-live="polite">Trouve le titre dès 0,1 s pour obtenir 20/20.</p>
     <div id="btReveal" hidden><img alt="Pochette du morceau" /><h3></h3><p></p></div>
     <button id="btNext" type="button" hidden>Morceau suivant →</button>`;
   document.querySelector('.app-shell').append(panel);
@@ -151,7 +151,8 @@ export function createBlindtest({ getSongs, getVolume, getCatalog = getSongs }) 
       history.recent = Array.isArray(saved.recent) ? saved.recent.filter(id => typeof id === 'string').slice(0, 4) : [];
     }
   } catch { /* Keep an in-memory history when browser storage is unavailable. */ }
-  let visible = false, busy = false, solved = false, heard = false, points = 0, wins = 0;
+  let visible = false, busy = false, solved = false, heard = false, totalGrade = 0, completedRounds = 0;
+  const formatGrade = value => value.toLocaleString('fr-FR', { maximumFractionDigits: 1 });
   let controller, activeGain, frame = 0, playbackRequest = 0, confettiTimer;
   let volume = getVolume();
   try {
@@ -270,7 +271,10 @@ export function createBlindtest({ getSongs, getVolume, getCatalog = getSongs }) 
     skip.textContent = step === STEPS.length - 1 ? 'Voir la réponse' : 'Je sais pas →';
     show(form, heard && !solved);
     show(next, solved);
-    $('#btScore').textContent = `${points} point${points > 1 ? 's' : ''} · ${wins} trouvé${wins > 1 ? 's' : ''}`;
+    $('#btScore').textContent = `Connaissance · ${completedRounds ? formatGrade(totalGrade / completedRounds) : '—'} /20`;
+    $('#btScore').title = completedRounds
+      ? `Moyenne sur ${completedRounds} manche${completedRounds > 1 ? 's' : ''} : 20 à 0,1 s, puis 17,5 · 15 · 12,5 · 10 · 7,5 · 5 · 2,5. Réponse affichée : 0.`
+      : 'Ta moyenne apparaîtra après la première manche.';
   }
 
   async function play(full = false) {
@@ -387,7 +391,9 @@ export function createBlindtest({ getSongs, getVolume, getCatalog = getSongs }) 
     closeSuggestions();
     solved = true;
     stop();
-    if (won) { points += STEPS.length - step; wins += 1; }
+    const grade = won ? (STEPS.length - step) / STEPS.length * 20 : 0;
+    totalGrade += grade;
+    completedRounds += 1;
     status.replaceChildren();
     status.classList.toggle('bt-won', won);
     panel.classList.add('bt-revealed');
@@ -395,7 +401,7 @@ export function createBlindtest({ getSongs, getVolume, getCatalog = getSongs }) 
       const title = document.createElement('strong');
       title.textContent = 'Bien joué !';
       const detail = document.createElement('span');
-      detail.textContent = `Trouvé à ${durationLabel()} · +${STEPS.length - step} point${STEPS.length - step > 1 ? 's' : ''}`;
+      detail.textContent = `Trouvé à ${durationLabel()} · ${formatGrade(grade)}/20`;
       status.append(title, detail);
       celebrate();
     }
