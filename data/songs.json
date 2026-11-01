@@ -404,5 +404,19 @@
   "theme": [
     "#353535"
   ]
+},
+{
+  "id": "song-40",
+  "title": "Techno blocus",
+  "description": "c'est la soirée technooo",
+  "file": "music/boubismillah/Techno blocus.mp3",
+  "cover": "covers/boubismillah.jpg",
+  "playlist": [
+    5,
+    4
+  ],
+  "theme": [
+    "#FFFFFF"
+  ]
 }
 ]
