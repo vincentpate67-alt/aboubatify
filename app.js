@@ -343,6 +343,7 @@ function getPlaylistEntries() {
     { id: 'playlist-1', name: 'ABOUBAKAR' },
     { id: 'playlist-2', name: 'OUKOUBOUBA' },
     { id: 'playlist-3', name: 'BOUBAGUEZ' },
+    { id: 'playlist-5', name: 'BOUBISMILLAH' },
     { id: 'all', name: 'ALL STAR' },
     { id: 'blindtest', name: 'BLINDTEST' }
   ];

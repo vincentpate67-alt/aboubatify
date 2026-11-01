@@ -250,5 +250,159 @@
     "cover": "covers/boubaguez.jpg",
     "playlist": [3, 4],
     "theme": ["#F20CE7"]
-  }
+  },
+{
+  "id": "song-29",
+  "title": "Ambre",
+  "description": "Bismillah le biberon",
+  "file": "music/boubismillah/Ambre.mp3",
+  "cover": "covers/boubismillah.jpg",
+  "playlist": [
+    5,
+    4
+  ],
+  "theme": [
+    "#F20C0C"
+  ]
+},
+{
+  "id": "song-30",
+  "title": "PORTO GUZZ",
+  "description": "Sortez du pays ouais sortez du pays",
+  "file": "music/boubismillah/PORTO GUZZ.mp3",
+  "cover": "covers/boubismillah.jpg",
+  "playlist": [
+    5,
+    4
+  ],
+  "theme": [
+    "#F2490C"
+  ]
+},
+{
+  "id": "song-31",
+  "title": "Petit jacobin",
+  "description": "Oh oui mon petit jacobin",
+  "file": "music/boubismillah/Petit jacobin.mp3",
+  "cover": "covers/boubismillah.jpg",
+  "playlist": [
+    5,
+    4
+  ],
+  "theme": [
+    "#F2870C"
+  ]
+},
+{
+  "id": "song-32",
+  "title": "Jade",
+  "description": "Sortez les jade, de la classe étoile",
+  "file": "music/boubismillah/Jade.mp3",
+  "cover": "covers/boubismillah.jpg",
+  "playlist": [
+    5,
+    4
+  ],
+  "theme": [
+    "#F2C40C"
+  ]
+},
+{
+  "id": "song-33",
+  "title": "Voiture",
+  "description": "Subway way way, mac frappay ay ay",
+  "file": "music/boubismillah/Voiture.mp3",
+  "cover": "covers/boubismillah.jpg",
+  "playlist": [
+    5,
+    4
+  ],
+  "theme": [
+    "#E3F20C"
+  ]
+},
+{
+  "id": "song-34",
+  "title": "Garnett",
+  "description": "Selyatta je vénère",
+  "file": "music/boubismillah/Garnett.mp3",
+  "cover": "covers/boubismillah.jpg",
+  "playlist": [
+    5,
+    4
+  ],
+  "theme": [
+    "#A6F20C"
+  ]
+},
+{
+  "id": "song-35",
+  "title": "Ching Chong",
+  "description": "Vous êtes accepté à l'ENS",
+  "file": "music/boubismillah/Ching Chong.mp3",
+  "cover": "covers/boubismillah.jpg",
+  "playlist": [
+    5,
+    4
+  ],
+  "theme": [
+    "#68F20C"
+  ]
+},
+{
+  "id": "song-36",
+  "title": "PTSI",
+  "description": "La PTSI, c'est tout pété",
+  "file": "music/boubismillah/PTSI.mp3",
+  "cover": "covers/boubismillah.jpg",
+  "playlist": [
+    5,
+    4
+  ],
+  "theme": [
+    "#2BF20C"
+  ]
+},
+{
+  "id": "song-37",
+  "title": "Rédemption",
+  "description": "Oh oui, c'est la musique de la rédemption",
+  "file": "music/boubismillah/Rédemption.mp3",
+  "cover": "covers/boubismillah.jpg",
+  "playlist": [
+    5,
+    4
+  ],
+  "theme": [
+    "#0CF22B"
+  ]
+},
+{
+  "id": "song-38",
+  "title": "FUCK",
+  "description": "J'vais tous vous éclater",
+  "file": "music/boubismillah/FUCK.mp3",
+  "cover": "covers/boubismillah.jpg",
+  "playlist": [
+    5,
+    4
+  ],
+  "theme": [
+    "#0CF268"
+  ]
+},
+{
+  "id": "song-39",
+  "title": "Aboubakar tacos",
+  "description": "Aboubakar tacos ouais ouais ouais",
+  "file": "music/boubismillah/Aboubakar tacos.mp3",
+  "cover": "covers/boubismillah.jpg",
+  "playlist": [
+    5,
+    4
+  ],
+  "theme": [
+    "#0CF2A6"
+  ]
+}
 ]

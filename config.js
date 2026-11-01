@@ -3,6 +3,7 @@ window.PLAYER_CONFIG = {
     "playlist-1": { id: "playlist-1", name: "Playlist 01" },
     "playlist-2": { id: "playlist-2", name: "Playlist 02" },
     "playlist-3": { id: "playlist-3", name: "Playlist 03" },
+    "playlist-5": { id: "playlist-5", name: "BOUBISMILLAH" },
     all: { id: "all", name: "Collection complète" }
   },
   defaultPlaylist: "playlist-1",
