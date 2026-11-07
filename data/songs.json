@@ -418,5 +418,19 @@
   "theme": [
     "#FFFFFF"
   ]
+},
+{
+  "id": "song-41",
+  "title": "KK",
+  "description": "J'lâches un gros classique c'est la fête",
+  "file": "music/boubismillah/KK.mp3",
+  "cover": "covers/boubismillah.jpg",
+  "playlist": [
+    5,
+    4
+  ],
+  "theme": [
+    "#8B4513"
+  ]
 }
 ]
