@@ -1,4 +1,4 @@
-import { createBlindtest } from './blindtest.js?v=7';
+import { createBlindtest } from './blindtest.js?v=8';
 
 const config = window.PLAYER_CONFIG;
 
@@ -511,6 +511,7 @@ function setNowPlayingSong(song) {
 
   document.documentElement.style.setProperty('--accent', palette[0]);
   document.documentElement.style.setProperty('--accent-2', palette[1] || '#68d5ff');
+  document.documentElement.style.setProperty('--track-fill', song.themeStyle === 'gradient' ? `linear-gradient(90deg, ${palette[0]}, ${palette[1]})` : palette[0]);
   document.documentElement.style.setProperty('--bg-1', '#070b14');
   document.documentElement.style.setProperty('--bg-2', '#111827');
   document.documentElement.style.setProperty('--bg-3', '#090d18');
@@ -526,7 +527,11 @@ function setNowPlayingSong(song) {
 function updateBackgroundTint(accent) {
   const baseColor = state.themeDark ? '#000000' : '#ffffff';
   const tintAmount = state.themeDark ? 7 : 8;
-  const backgroundTint = `color-mix(in srgb, ${accent} ${tintAmount}%, ${baseColor})`;
+  const currentSong = state.allSongs.find(song => song.id === state.currentSongId);
+  const tint = color => `color-mix(in srgb, ${color} ${tintAmount}%, ${baseColor})`;
+  const backgroundTint = currentSong?.themeStyle === 'gradient'
+    ? `linear-gradient(120deg, ${tint(accent)}, ${tint(buildThemePalette(currentSong.theme)[1])})`
+    : tint(accent);
   document.documentElement.style.setProperty('--bg-tint', backgroundTint);
   document.documentElement.style.background = backgroundTint;
   document.body.style.background = backgroundTint;

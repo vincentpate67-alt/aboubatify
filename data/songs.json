@@ -432,5 +432,21 @@
   "theme": [
     "#8B4513"
   ]
+},
+{
+  "id": "song-42",
+  "title": "Débile Ébola",
+  "description": "Débile ebola, wallaaaaah",
+  "file": "music/boubismillah/Débile ébola.mp3",
+  "cover": "covers/boubismillah.jpg",
+  "playlist": [
+    5,
+    4
+  ],
+  "theme": [
+    "#00DDF2",
+    "#9A36EF"
+  ],
+  "themeStyle": "gradient"
 }
 ]

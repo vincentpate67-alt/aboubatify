@@ -214,6 +214,11 @@ export function createBlindtest({ getSongs, getVolume, getCatalog = getSongs }) 
     const color = solved && /^#[0-9a-f]{6}$/i.test(songColor || '') ? songColor : COLORS[step];
     panel.style.setProperty('--accent', color);
     backdrop.style.backgroundColor = color;
+    const secondColor = song?.theme?.[1];
+    const gradient = solved && song?.themeStyle === 'gradient' && /^#[0-9a-f]{6}$/i.test(secondColor || '')
+      ? `linear-gradient(120deg, ${color}, ${secondColor})` : null;
+    backdrop.style.backgroundImage = gradient || '';
+    panel.style.setProperty('--bt-track-fill', gradient || color);
     panel.style.setProperty('--bt-color', color);
     backdrop.classList.toggle('active', visible);
     document.body.classList.toggle('bt-active', visible);
