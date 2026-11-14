@@ -448,5 +448,21 @@
     "#9A36EF"
   ],
   "themeStyle": "gradient"
+},
+{
+  "id": "song-43",
+  "title": "Touristix",
+  "description": "la bière d'astrub je la bois au goulot",
+  "file": "music/boubismillah/Touristix.mp3",
+  "cover": "covers/boubismillah.jpg",
+  "playlist": [
+    5,
+    4
+  ],
+  "theme": [
+    "#F20C0C",
+    "#1769F2"
+  ],
+  "themeStyle": "gradient"
 }
 ]
